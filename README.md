@@ -15,6 +15,9 @@ docker-compose run --rm openvpn ovpn_initpki
 
 `docker-compose run --rm openvpn ovpn_getclient {client_name} > certificate.ovpn`
 
+Получить список клиентов:
+`docker-compose run --rm openvpn ovpn_listclients`
+
 # Wireguard
 
 Чтобы вывести на экран qr код добавления туннеля, на сервере исполняем команду:
