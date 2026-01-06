@@ -44,6 +44,19 @@ services:
       options:
         max-size: "50m"
 
+  mtproto:
+    cap_add:
+      - NET_ADMIN
+    image: telegrammessenger/proxy:latest
+    container_name: mtproto
+    restart: unless-stopped
+    ports:
+      - "4443:443/tcp"
+    environment:
+      SECRET: ${MTPROTO_SECRET}
+    volumes:
+      - ./.data/mtproto:/data
+
 networks:
   default:
     name: openvpn
