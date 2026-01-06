@@ -59,7 +59,7 @@ services:
     container_name: mtproto
     restart: unless-stopped
     ports:
-      - "4443:443/tcp"
+      - "8443:443/tcp"
     environment:
       SECRET: ${MTPROTO_SECRET}
     volumes:
