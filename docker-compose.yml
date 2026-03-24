@@ -66,6 +66,30 @@ services:
     volumes:
       - ./.data/mtproto:/data
 
+  mtg:
+    image: nineseconds/mtg:2.2.4
+    container_name: mtg
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "9443:443/tcp"
+    volumes:
+      - ./config.toml.template:/config.toml.template:ro
+    entrypoint:
+      - /bin/sh
+      - -ec
+      - |
+        envsubst < /config.toml.template > /tmp/config.toml
+        exec mtg run /tmp/config.toml
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
 networks:
   default:
     name: openvpn
