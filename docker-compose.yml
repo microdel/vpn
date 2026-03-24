@@ -75,13 +75,8 @@ services:
     ports:
       - "8080:443/tcp"
     volumes:
-      - ./config.toml.template:/config.toml.template:ro
-    entrypoint:
-      - /bin/sh
-      - -ec
-      - |
-        envsubst < /config.toml.template > /tmp/config.toml
-        exec mtg run /tmp/config.toml
+      - ./config.toml:/config.toml:ro
+    command: ["run", "/config.toml"]
     read_only: true
     tmpfs:
       - /tmp
