@@ -73,7 +73,7 @@ services:
     env_file:
       - .env
     ports:
-      - "8080:443/tcp"
+      - "8080:3128/tcp"
     volumes:
       - ./config.toml:/config.toml:ro
     command: ["run", "/config.toml"]
