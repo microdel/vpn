@@ -73,7 +73,7 @@ services:
     env_file:
       - .env
     ports:
-      - "9443:443/tcp"
+      - "8080:443/tcp"
     volumes:
       - ./config.toml.template:/config.toml.template:ro
     entrypoint:
