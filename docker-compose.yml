@@ -78,12 +78,6 @@ services:
       - ./config.toml:/config.toml:ro
     command: ["run", "/config.toml"]
     read_only: true
-    tmpfs:
-      - /tmp
-    security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
 
 networks:
   default:
