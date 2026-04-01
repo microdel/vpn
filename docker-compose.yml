@@ -67,7 +67,7 @@ services:
       - ./.data/mtproto:/data
 
   mtg:
-    image: nineseconds/mtg:2.2.4
+    image: nineseconds/mtg:2.2.6
     container_name: mtg
     restart: unless-stopped
     env_file:
